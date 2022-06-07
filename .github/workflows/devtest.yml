@@ -46,7 +46,7 @@ jobs:
   
   DeployStaging: 
     name: Deploy to Staging
-    if: github.event.pull_request.base.ref == 'main'
+    if: github.event.ref == 'main'
     needs: [Test]
     runs-on: ubuntu-latest
     environment:
