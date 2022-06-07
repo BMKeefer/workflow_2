@@ -4,5 +4,5 @@ resource "azurerm_resource_group" "terraform_resource_group" {
   tags = {
     AN-GROUP-NAME   = "tatiterraform"
     BusinessContact = "tatjana.utvic@abbott.com"
-          }
-            }
+  }
+}
