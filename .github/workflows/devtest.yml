@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Development + Testing
+
+on: 
+  push: 
+    branches:
+      - update/*
+  pull_request:
+    branches:
+      - development
+
+jobs: 
+  Lint: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Terraform-Lint
+        uses: actionshub/terraform-lint@1.0.0
+  Build:
+    runs-on: ubuntu-latest
+  
+  Test:
+    runs-on: ubuntu-latest
+  
+  DeployDev:
+    runs-on: ubuntu-latest
+  
+  
+
+
