@@ -7,6 +7,9 @@ on:
     branches:
       - update/*
       - development
+  pull-request:
+    branches:
+      - main
 
 jobs: 
   Lint: 
@@ -40,6 +43,17 @@ jobs:
     steps:
       - name: Deploy
         run: echo I am deploying!
+  
+  DeployStaging: 
+    name: Deploy to Staging
+    if: github.event.ref == 'refs/heads/development' && github.event_name == 'pull_request'
+    needs: [Test]
+    runs-on: ubuntu-latest
+    environment:
+      name: Staging
+    steps:
+      - name: Stage
+        run: echo I am staging!
   
   
 
