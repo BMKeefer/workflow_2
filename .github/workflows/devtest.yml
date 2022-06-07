@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: echo ${{ github.event.pull_request.base.ref }}
+        run: echo ${{ github.event.ref }}
   
   DeployDev:
     name: Deploy to Dev 
