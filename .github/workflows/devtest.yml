@@ -18,12 +18,28 @@ jobs:
         uses: actionshub/terraform-lint@1.0.0
   Build:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build
+        run: echo The infrastructure has been built!
   
   Test:
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test
+        run: echo ${{ github.event.pull_request.base.ref }}
   
   DeployDev:
+    name: Deploy to Dev 
+    if: github.event_name == 'pull_request'
+    needs: [Build]
     runs-on: ubuntu-latest
+    environment: 
+      name: Development
+    steps:
+      - name: Deploy
+        run: echo I am deploying!
   
   
 
