@@ -54,5 +54,16 @@ jobs:
         run: echo I am staging!
   
   
+  DeployProduction:
+    name: Deploy to Production
+    needs: [DeployStaging]
+    runs-on: ubtuntu-latest
+    environment: 
+      name: Production
+    steps:
+      - name: Produce
+        run: echp Going into production!
+  
+  
 
 
