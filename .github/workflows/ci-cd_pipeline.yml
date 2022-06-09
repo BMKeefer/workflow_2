@@ -30,6 +30,7 @@ jobs:
         run: echo The infrastructure has been built!
         
   Test:
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     needs: [Build]
     steps:
@@ -43,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
-      run: echo $GITHUB_HEAD_REF
+      run: echo ${{ github.ref }}
     - name: Failure
       run: exit 1
   
