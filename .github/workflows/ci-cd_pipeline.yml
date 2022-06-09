@@ -36,15 +36,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: echo ${{ github.CI_HEAD_REF }}
+        run: echo ${{ github.ref }}
         
   CheckPull:
     name: Validate Pull to Main
-    if: (github.event_name == 'pull_request') && (github.pull_request.head.ref != 'development')
+    if: github.event_name == 'pull_request' &&  github.event.pull_request.head.ref != 'development'
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
-      run: echo ${{ github.event_name }}
+      run: echo ${{ github.event.pull_request.head.ref }}
     - name: Failure
       run: exit 1
   
