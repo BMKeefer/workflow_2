@@ -62,7 +62,7 @@ jobs:
       name: Production
     steps:
       - name: Produce
-        run: echp Going into production!
+        run: echo Going into production!
   
   
 
