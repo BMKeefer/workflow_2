@@ -42,6 +42,8 @@ jobs:
     if: github.event_name == 'pull_request' && github.pull_request.head.ref != 'development'
     runs-on: ubuntu-latest
     steps: 
+    - name: Debug
+      run: echo ${{ github.pull_request.head.ref }}
     - name: Failure
       run: exit 1
   
