@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
-      run: echo ${{ github.event_name }}
+      run: echo ${{ github.CI_HEAD_REF }}
     - name: Failure
       run: exit 1
   
