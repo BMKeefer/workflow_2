@@ -30,17 +30,16 @@ jobs:
         run: echo The infrastructure has been built!
         
   Test:
-    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     needs: [Build]
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: echo ${{ github.ref}}
+        run: echo ${{ github.ref }}
         
   CheckPull:
     name: Validate Pull to Main
-    if: ${{ github.event_name == 'pull_request' }} && ${{ github.ref != 'development' }}
+    if: github.event_name == 'pull_request' &&  github.ref != 'refs/heads/development'
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
