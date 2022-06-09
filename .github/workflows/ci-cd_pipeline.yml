@@ -8,6 +8,9 @@ on:
       - update/*
       - development
       - main
+  pull_request:
+    branches: 
+      - main
 
 jobs: 
   Lint: 
@@ -30,6 +33,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Test
         run: echo ${{ github.event.ref }}
+        
+  CheckPull:
+    name: Validate Pull to Main
+    if: github.event_name == 'pull_request' && github.pull_request.head.ref != 'development'
   
   DeployDev:
     name: Deploy to Dev 
