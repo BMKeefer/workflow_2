@@ -37,6 +37,10 @@ jobs:
   CheckPull:
     name: Validate Pull to Main
     if: github.event_name == 'pull_request' && github.pull_request.head.ref != 'development'
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Failure
+      run: exit 1
   
   DeployDev:
     name: Deploy to Dev 
@@ -59,7 +63,6 @@ jobs:
     steps:
       - name: Stage
         run: echo I am staging!
-  
   
   DeployProduction:
     name: Deploy to Production
