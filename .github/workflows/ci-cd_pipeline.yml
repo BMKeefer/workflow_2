@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
-      run: echo $GITHUB_REF_TYPE
+      run: echo $GITHUB_REF_NAME
     - name: Failure
       run: exit 1
   
