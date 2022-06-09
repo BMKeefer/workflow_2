@@ -40,7 +40,7 @@ jobs:
         
   CheckPull:
     name: Validate Pull to Main
-    if: github.event_name == 'pull_request' && github.head_ref != 'development'
+    if: ${{ github.event_name }} == 'pull_request' && ${{ github.head_ref }} != 'development'
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
