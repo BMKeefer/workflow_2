@@ -36,11 +36,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: echo ${{ github.head_ref}}
+        run: echo ${{ github.head.ref}}
         
   CheckPull:
     name: Validate Pull to Main
-    if: ${{ github.event_name }} == 'pull_request' && ${{ github.head_ref }} != 'development'
+    if: github.event_name == 'pull_request' && github.head.ref != 'development'
     runs-on: ubuntu-latest
     steps: 
     - name: Debug
