@@ -1,4 +1,4 @@
-# workflow_2
+# workflow_demo
 Second attempt at automation workflow.
 
 Making my first development change. 
