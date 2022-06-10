@@ -1,4 +1,4 @@
-# workflow_2
+# workflow_demo
 Second attempt at automation workflow.
 
 Making my first development change. 
@@ -11,4 +11,3 @@ Just a small change for this update.
 
 This is to make development different than main. 
 
-Will this let me merge into main?
